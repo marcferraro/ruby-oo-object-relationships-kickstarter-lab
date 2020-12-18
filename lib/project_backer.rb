@@ -1,4 +1,4 @@
-class Backer
+class ProjectBacker
     def initialize (backer_instance, project_instance)
         @backer = backer_instance
         @project = project_instance

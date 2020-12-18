@@ -1,4 +1,4 @@
-class Backer
+class Project
     def initialize (title)
         @title = title
         @@all << self
@@ -10,6 +10,14 @@ class Backer
 
     def self.all
         @@all
+    end
+    
+    def add_backer(backer)
+        ProjectBacker.new(backer, self)
+    end
+
+    def backers
+        ProjectBacker.all.select {|pb| pb.project == self}
     end
     
 end

@@ -1,12 +1,10 @@
 require 'pry'
 
-
 class Backer
 
     def initialize(name)
         @name = name
         @@all << self
-        # binding.pry
     end
 
     @@all = []
@@ -17,7 +15,12 @@ class Backer
         @@all
     end
 
-end
+    def back_project(project)
+        ProjectBacker.new(self, project)
+    end
 
-marc = Backer.new("Marc")
-# binding.pry
+    def projects
+        ProjectBacker.all.select {|pb| pb.backer == self}
+    end
+
+end
